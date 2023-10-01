@@ -7,7 +7,7 @@ cd "$(dirname "$0")" || exit
 git config --global user.email "bryanlais@gmail.com"
 git config --global user.name "Bryan Lai"
 
-git clone https://github.com/bryango/nixpkgs.git
+git clone --filter=blob:none --branch=master --single-branch --verbose https://github.com/bryango/nixpkgs.git
 cd nixpkgs || exit
 
 nix-shell -p nixpkgs-review --run "nixpkgs-review pr --build-args='$*' --no-shell --print-result 258152"
