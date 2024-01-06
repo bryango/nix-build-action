@@ -5,7 +5,7 @@ set -x
 cd "$(dirname "$0")" || exit
 
 # https://hydra.nixos.org/jobset/nixpkgs/staging-next
-flakeref=github:NixOS/nixpkgs/f3c04dc97a71c8c3e650b4cf1602ec5c26ac1cf1
+flakeref=github:NixOS/nixpkgs/8a839514de0e209f779dd9b8347f5855fbb1d77f
 
 # nix build --print-build-logs --impure --expr 'with import (builtins.getFlake "'"$flakeref"'") {}; mkShell { inputsFrom = [ watchman ]; }' "$@"
 # nix why-depends --all --precise ./result "$flakeref"#python3.out || true
