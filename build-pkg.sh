@@ -4,4 +4,6 @@
 set -x
 cd "$(dirname "$0")" || exit
 
-nix build --print-build-logs github:NixOS/nixpkgs/staging#watchman "$@"
+# nix build --print-build-logs github:NixOS/nixpkgs/staging#watchman "$@"
+
+nix why-depends github:NixOS/nixpkgs/staging#{stdenv,python3} "$@" || true
