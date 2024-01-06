@@ -4,6 +4,6 @@
 set -x
 cd "$(dirname "$0")" || exit
 
-flakeref=github:NixOS/nixpkgs/nixpkgs-unstable
-nix build --print-build-logs "$flakeref"#stdenv "$@"
-nix why-depends --all --precise "$flakeref"#{stdenv,python3.out} || true
+flakeref=github:NixOS/nixpkgs/staging
+nix build --print-build-logs --impure "with import ./. {}; mkShell { inputsFrom = [ watchman ]; }" "$@"
+nix why-depends --all --precise ./result "$flakeref"#python3.out || true
