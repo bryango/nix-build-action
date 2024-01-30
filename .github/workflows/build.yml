@@ -10,6 +10,8 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
+    env:
+      NIX_CONFIG: "access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}"
     steps:
     - uses: actions/checkout@v3
     - uses: cachix/install-nix-action@v22
