@@ -4,7 +4,7 @@
 set -x
 cd "$(dirname "$0")" || exit
 
-flakeref=github:bryango/nix#nix
+flakeref=github:bryango/nix/fix-submodule-subdir#nix
 
 # nix build --print-build-logs --impure --expr 'with import (builtins.getFlake "'"$flakeref"'") {}; mkShell { inputsFrom = [ watchman ]; }' "$@"
 # nix why-depends --all --precise ./result "$flakeref"#python3.out

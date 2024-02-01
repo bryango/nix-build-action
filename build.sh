@@ -1,1 +1,1 @@
-build-pr.sh
+build-pkg.sh
