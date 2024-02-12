@@ -4,10 +4,10 @@
 set -x
 cd "$(dirname "$0")" || exit
 
-flakeref=github:bryango/nix/fix-submodule-subdir#nix
+flakeref=github:bryango/stem/fix-cryptography
 
 # nix build --print-build-logs --impure --expr 'with import (builtins.getFlake "'"$flakeref"'") {}; mkShell { inputsFrom = [ watchman ]; }' "$@"
 # nix why-depends --all --precise ./result "$flakeref"#python3.out
 
 nix build --print-build-logs "$flakeref" "$@"
-nix run "$flakeref" -- flake metadata github:bryango/cheznix --update-input nixpkgs-config "$@" || true
+# nix run "$flakeref" -- flake metadata github:bryango/cheznix --update-input nixpkgs-config "$@" || true
