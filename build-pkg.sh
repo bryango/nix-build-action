@@ -4,7 +4,7 @@
 set -x
 cd "$(dirname "$0")" || exit
 
-flakeref=github:bryango/stem/fix-cryptography
+flakeref=github:bryango/pinix
 
 # nix build --print-build-logs --impure --expr 'with import (builtins.getFlake "'"$flakeref"'") {}; mkShell { inputsFrom = [ watchman ]; }' "$@"
 # nix why-depends --all --precise ./result "$flakeref"#python3.out
