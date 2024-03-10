@@ -13,7 +13,7 @@ git config --global user.name "Bryan Lai"
 cd nixpkgs || exit
 
 # shellcheck disable=SC2145
-nix run ./nixpkgs#nixpkgs-review -- pr \
+nix run .#nixpkgs-review -- pr \
     --build-args="$@" --no-shell --print-result \
     --extra-nixpkgs-config '{ allowInsecurePredicate = x: true; }' --eval local \
     292611

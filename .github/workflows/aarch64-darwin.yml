@@ -1,4 +1,4 @@
-name: "build for aarch64-linux"
+name: "build for aarch64-darwin"
 on:
   pull_request:
   push:
