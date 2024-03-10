@@ -22,5 +22,5 @@ jobs:
         install_url: https://releases.nixos.org/nix/nix-2.18.1/install
         extra_nix_config: "experimental-features = nix-command flakes fetch-closure"
     - uses: DeterminateSystems/magic-nix-cache-action@v2
-    - run: ./build.sh --extra-platforms aarch64-linux --option system aarch64-linux --dry-run
-    - run: ./build.sh --extra-platforms aarch64-linux --option system aarch64-linux
+    - run: ./build.sh --extra-platforms aarch64-linux --dry-run
+    - run: ./build.sh --extra-platforms aarch64-linux
