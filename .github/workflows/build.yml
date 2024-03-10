@@ -8,12 +8,13 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     env:
       NIX_CONFIG: "access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}"
       GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
     steps:
+    - uses: docker/setup-qemu-action@v1
     - uses: actions/checkout@v3
     - uses: cachix/install-nix-action@v22
       with:
@@ -21,5 +22,5 @@ jobs:
         install_url: https://releases.nixos.org/nix/nix-2.18.1/install
         extra_nix_config: "experimental-features = nix-command flakes fetch-closure"
     - uses: DeterminateSystems/magic-nix-cache-action@v2
-    - run: ./build.sh --dry-run
-    - run: ./build.sh
+    - run: ./build.sh --extra-platforms aarch64-linux --option system aarch64-linux --dry-run
+    - run: ./build.sh --extra-platforms aarch64-linux --option system aarch64-linux
