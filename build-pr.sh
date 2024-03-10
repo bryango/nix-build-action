@@ -19,3 +19,5 @@ nix run .#nixpkgs-review -- pr \
     292611
 
 ### `--eval local` for insecure packages; should remove for normal packages!
+### `$@`: the first argument must exist, will be passed to `--build-args`;
+###       the rest of the arguments are passed to `nixpkgs-review`.

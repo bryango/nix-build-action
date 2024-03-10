@@ -22,7 +22,6 @@ jobs:
         repository: 'NixOS/nixpkgs'
         path: 'nixpkgs'
         ref: 'master'
-        fetch-depth: 0
         filter: 'blob:none'
     - uses: cachix/install-nix-action@v22
       with:
