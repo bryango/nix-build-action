@@ -7,7 +7,15 @@ cd "$(dirname "$0")" || exit
 git config --global user.email "bryanlais@gmail.com"
 git config --global user.name "Bryan Lai"
 
-git clone --filter=blob:none --branch=master --single-branch --verbose https://github.com/NixOS/nixpkgs.git
+## clone with github:actions/checkout or this:
+# git clone --filter=blob:none --branch=master --single-branch --verbose https://github.com/NixOS/nixpkgs.git
+
 cd nixpkgs || exit
 
-nix run nixpkgs#nixpkgs-review -- pr --system aarch64-linux --extra-nixpkgs-config '{ allowInsecurePredicate = x: true; }' --eval local --build-args="$*" --no-shell --print-result 292611 || true
+# shellcheck disable=SC2145
+nix run ./nixpkgs#nixpkgs-review -- pr \
+    --build-args="$@" --no-shell --print-result \
+    --extra-nixpkgs-config '{ allowInsecurePredicate = x: true; }' --eval local \
+    292611
+
+### `--eval local` for insecure packages; should remove for normal packages!
