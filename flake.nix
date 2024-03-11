@@ -20,7 +20,7 @@
         inherit system;
         pkgs = import nixpkgs {
           inherit system;
-          allowInsecurePredicate = x: true;
+          config.allowInsecurePredicate = x: true;
         };
         final = self.packages.${system};
       });
