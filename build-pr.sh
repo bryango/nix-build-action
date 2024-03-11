@@ -5,8 +5,8 @@ set -x
 cd "$(dirname "$0")" || exit
 
 ### used by nixpkgs-review
-# git config --global user.email "bryanlais@gmail.com"
-# git config --global user.name "Bryan Lai"
+git config --global user.email "bryanlais@gmail.com"
+git config --global user.name "Bryan Lai"
 
 ### clone with github:actions/checkout or this:
 # git clone \
