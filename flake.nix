@@ -26,7 +26,8 @@
       });
     in
     {
-      packages = forAllSystems ({ pkgs, ... }: pkgs // {
+      legacyPackages = forAllSystems ({ pkgs, ... }: pkgs);
+      packages = forAllSystems ({ pkgs, ... }: {
         default = pkgs.pulsar;
       });
     };
