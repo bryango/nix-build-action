@@ -2,8 +2,8 @@
   description = "A simple flake to build nix packages";
 
   inputs = {
-    /** pulsar-bump-fix: https://github.com/NixOS/nixpkgs/pull/292611 */
-    nixpkgs.url = "github:NixOS/nixpkgs/011b1ee22c4f5ddd41f054ec3e43b7b0f4f58fe4";
+    /** tectonic-inherit-argv0: https://github.com/NixOS/nixpkgs/pull/295314 */
+    nixpkgs.url = "github:NixOS/nixpkgs/a6504022e79c77d9ba5a77bc905b88ebb2f4530f";
   };
 
   outputs = { self, nixpkgs }:
@@ -28,7 +28,8 @@
     {
       legacyPackages = forAllSystems ({ pkgs, ... }: pkgs);
       packages = forAllSystems ({ pkgs, ... }: {
-        default = pkgs.pulsar;
+        /** the default package to build */
+        default = pkgs.tectonic;
       });
     };
 }
