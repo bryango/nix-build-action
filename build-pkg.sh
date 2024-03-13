@@ -4,6 +4,10 @@
 set -x
 cd "$(dirname "$0")" || exit
 
+## fetch the necessary license from store
+nix copy --from https://chezbryan.cachix.org \
+    /nix/store/xzddkr1n8s5rpbwz0s2n1b2a2wyj010p-license.tar.gz
+
 # flakeref=github:NixOS/nixpkgs#pkgsCross.raspberryPi.git-branchless
 flakeref=.
 
