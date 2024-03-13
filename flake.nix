@@ -2,17 +2,17 @@
   description = "A simple flake to build nix packages";
 
   inputs = {
-    /** tectonic-inherit-argv0: https://github.com/NixOS/nixpkgs/pull/295314 */
-    nixpkgs.url = "github:NixOS/nixpkgs/a6504022e79c77d9ba5a77bc905b88ebb2f4530f";
+    /** wechat-uos: https://github.com/NixOS/nixpkgs/pull/293730 */
+    nixpkgs.url = "github:NixOS/nixpkgs/8e25ca31b37d687e5747d86278c2e530c6d3da49";
   };
 
   outputs = { self, nixpkgs }:
     let
       systems = [
         "x86_64-linux"
-        "x86_64-darwin"
+        # "x86_64-darwin"
         "aarch64-linux"
-        "aarch64-darwin"
+        # "aarch64-darwin"
       ];
 
       inherit (nixpkgs) lib;
@@ -20,7 +20,11 @@
         inherit system;
         pkgs = import nixpkgs {
           inherit system;
-          config.allowInsecurePredicate = x: true;
+          config = {
+            allowInsecurePredicate = x: true;
+            allowBroken = true;
+            allowUnfree = true;
+          };
         };
         final = self.packages.${system};
       });
@@ -29,7 +33,7 @@
       legacyPackages = forAllSystems ({ pkgs, ... }: pkgs);
       packages = forAllSystems ({ pkgs, ... }: {
         /** the default package to build */
-        default = pkgs.tectonic;
+        default = pkgs.wechat-uos;
       });
     };
 }
