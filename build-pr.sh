@@ -21,7 +21,7 @@ cd nixpkgs || exit
 
 ### intentionally splitting "$@" for --build-args and more
 # shellcheck disable=SC2145
-nix run .#nixpkgs-review -- pr \
+nix run nixpkgs#nixpkgs-review -- pr \
     --build-args="$@" --no-shell --print-result \
     296433
 
