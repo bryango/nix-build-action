@@ -19,12 +19,13 @@ cd nixpkgs || exit
 ### TODO: use github api instead of manually merging.
 ### however, one needs to teach nixpkgs-review to look for ofborg reports.
 
+### intentionally splitting "$@" for --build-args and more
 # shellcheck disable=SC2145
 nix run .#nixpkgs-review -- pr \
     --build-args="$@" --no-shell --print-result \
-    --extra-nixpkgs-config '{ allowInsecurePredicate = x: true; }' --eval local \
-    292611
+    296433
 
-### `--eval local` for insecure packages; should remove for normal packages!
+### for insecure packages,
+    # --extra-nixpkgs-config '{ allowInsecurePredicate = x: true; }' --eval local \
 ### `$@`: the first argument must exist, will be passed to `--build-args`;
 ###       the rest of the arguments are passed to `nixpkgs-review`.
