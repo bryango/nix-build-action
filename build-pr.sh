@@ -23,7 +23,8 @@ cd nixpkgs || exit
 # shellcheck disable=SC2145
 nix run nixpkgs#nixpkgs-review -- pr \
     --build-args="$@" --no-shell --print-result \
-    296433
+    --extra-nixpkgs-config '{ allowInsecurePredicate = x: true; }' --eval local \
+    312720
 
 ### for insecure packages,
     # --extra-nixpkgs-config '{ allowInsecurePredicate = x: true; }' --eval local \
