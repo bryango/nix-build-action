@@ -9,7 +9,7 @@ cd "$(dirname "$0")" || exit
 #     /nix/store/xzddkr1n8s5rpbwz0s2n1b2a2wyj010p-license.tar.gz
 
 # flakeref=github:NixOS/nixpkgs#pkgsCross.raspberryPi.git-branchless
-flakeref=( github:NixOS/nixpkgs/b0517844d0ec30cf92061ba64d1cbd58100c6e38#tectonic{-unwrapped,} )
+flakeref=( github:NixOS/nixpkgs/ca6d85c41438a0cc72020c800d8df9ba5de0793c#nix-melt )
 
 # nix build --print-build-logs --impure --expr 'with import (builtins.getFlake "'"$flakeref"'") {}; mkShell { inputsFrom = [ watchman ]; }' "$@"
 # nix why-depends --all --precise ./result "$flakeref"#python3.out
