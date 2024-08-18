@@ -28,5 +28,9 @@ jobs:
         install_url: https://releases.nixos.org/nix/nix-2.18.1/install
         extra_nix_config: "experimental-features = nix-command flakes fetch-closure"
     - uses: DeterminateSystems/magic-nix-cache-action@v2
+    - uses: cachix/cachix-action@v12
+      with:
+        name: chezbryan
+        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - run: ./build.sh --dry-run || true
     - run: ./build.sh ' '
