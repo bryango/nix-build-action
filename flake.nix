@@ -2,8 +2,8 @@
   description = "A simple flake to build nix packages";
 
   inputs = {
-    /** wechat-uos: https://github.com/NixOS/nixpkgs/pull/293730 */
-    nixpkgs.url = "github:NixOS/nixpkgs/8e25ca31b37d687e5747d86278c2e530c6d3da49";
+    /** pulsar: https://github.com/NixOS/nixpkgs/pull/335896 */
+    nixpkgs.url = "github:NixOS/nixpkgs/a7201146e68e726ea7d0005dbad81824ef0287e0";
   };
 
   outputs = { self, nixpkgs }:
@@ -33,7 +33,7 @@
       legacyPackages = forAllSystems ({ pkgs, ... }: pkgs);
       packages = forAllSystems ({ pkgs, ... }: {
         /** the default package to build */
-        default = pkgs.wechat-uos;
+        default = pkgs.pulsar;
       });
     };
 }
