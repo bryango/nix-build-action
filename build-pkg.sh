@@ -10,7 +10,7 @@ cd "$(dirname "$0")" || exit
 
 # flakeref=( .#pulsar )
 # flakeref=github:NixOS/nixpkgs#pkgsCross.raspberryPi.git-branchless
-flakeref=( github:bryango/nixpkgs/de7b63a011eb3e226d2f38c21789c1443d7d8983#git-branchless )
+flakeref=( github:bryango/nixpkgs/rust-cbindgen#rust-cbindgen )
 
 # nix build --print-build-logs --impure --expr 'with import (builtins.getFlake "'"$flakeref"'") {}; mkShell { inputsFrom = [ watchman ]; }' "$@"
 # nix why-depends --all --precise ./result "$flakeref"#python3.out
