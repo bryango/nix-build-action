@@ -2,8 +2,8 @@
   description = "A simple flake to build nix packages";
 
   inputs = {
-    /** pulsar: https://github.com/NixOS/nixpkgs/pull/335896 */
-    nixpkgs.url = "github:NixOS/nixpkgs/a7201146e68e726ea7d0005dbad81824ef0287e0";
+    /** pulsar: https://github.com/NixOS/nixpkgs/pull/358575 */
+    nixpkgs.url = "github:NixOS/nixpkgs/a73a3fd4bca8d4cdb3af8616cd4dbad553367175";
   };
 
   outputs = { self, nixpkgs }:
