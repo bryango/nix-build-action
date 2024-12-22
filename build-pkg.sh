@@ -8,9 +8,10 @@ cd "$(dirname "$0")" || exit
 # nix copy --from https://chezbryan.cachix.org --no-check-sigs \
 #     /nix/store/xzddkr1n8s5rpbwz0s2n1b2a2wyj010p-license.tar.gz
 
-flakeref=( .#pulsar )
+# flakeref=( .#pulsar )
 # flakeref=github:NixOS/nixpkgs#pkgsCross.raspberryPi.git-branchless
 # flakeref=( github:bryango/nixpkgs/dev#rust-cbindgen )
+flakeref=( github:NixOS/nixpkgs/fd42a02b0d666af09992c65adfbc8a9103657c5a#hydra-check )
 
 # nix build --print-build-logs --impure --expr 'with import (builtins.getFlake "'"$flakeref"'") {}; mkShell { inputsFrom = [ watchman ]; }' "$@"
 # nix why-depends --all --precise ./result "$flakeref"#python3.out
