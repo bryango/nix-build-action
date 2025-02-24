@@ -1,4 +1,4 @@
-name: "build for aarch64-linux"
+name: "aarch64-linux (qemu)"
 on:
   pull_request:
   push:

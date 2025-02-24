@@ -1,4 +1,4 @@
-name: "build for x86_64"
+name: "native"
 on:
   pull_request:
   push:

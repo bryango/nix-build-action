@@ -11,7 +11,7 @@ cd "$(dirname "$0")" || exit
 # flakeref=( .#pulsar )
 # flakeref=github:NixOS/nixpkgs#pkgsCross.raspberryPi.git-branchless
 # flakeref=( github:bryango/nixpkgs/dev#rust-cbindgen )
-flakeref=( github:NixOS/nixpkgs/fd42a02b0d666af09992c65adfbc8a9103657c5a#hydra-check )
+flakeref=( 'github:NixOS/nixpkgs?ref=pull/384706/merge#'{tectonic,texpresso} )
 
 # nix build --print-build-logs --impure --expr 'with import (builtins.getFlake "'"$flakeref"'") {}; mkShell { inputsFrom = [ watchman ]; }' "$@"
 # nix why-depends --all --precise ./result "$flakeref"#python3.out
