@@ -12,8 +12,10 @@ cd "$(dirname "$0")" || exit
 # flakeref=github:NixOS/nixpkgs#pkgsCross.raspberryPi.git-branchless
 # flakeref=( github:bryango/nixpkgs/dev#rust-cbindgen )
 # flakeref=( 'github:NixOS/nixpkgs?ref=pull/384706/merge#'{tectonic,texpresso} )
-# flakeref=( github:bryango/nixpkgs/tectonic#tectonic.passthru.tests.{biber-compatibility,workspace,nextonic} )
-flakeref=( 'github:NixOS/nixpkgs?ref=pull/392621/merge#'{tectonic,texpresso} )
+flakeref=(
+    github:bryango/nixpkgs/tectonic#{tectonic,texpresso}
+    github:bryango/nixpkgs/tectonic#tectonic.passthru.tests.{biber-compatibility,workspace,nextonic}
+)
 
 # nix build --print-build-logs --impure --expr 'with import (builtins.getFlake "'"$flakeref"'") {}; mkShell { inputsFrom = [ watchman ]; }' "$@"
 # nix why-depends --all --precise ./result "$flakeref"#python3.out
