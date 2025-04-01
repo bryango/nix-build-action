@@ -2,17 +2,17 @@
   description = "A simple flake to build nix packages";
 
   inputs = {
-    /** pulsar: https://github.com/NixOS/nixpkgs/pull/358575 */
-    nixpkgs.url = "github:NixOS/nixpkgs/a73a3fd4bca8d4cdb3af8616cd4dbad553367175";
+    /** pulsar: 127.1 */
+    nixpkgs.url = "github:NixOS/nixpkgs?ref=pull/395034/merge";
   };
 
   outputs = { self, nixpkgs }:
     let
       systems = [
         "x86_64-linux"
-        # "x86_64-darwin"
+        "x86_64-darwin"
         "aarch64-linux"
-        # "aarch64-darwin"
+        "aarch64-darwin"
       ];
 
       inherit (nixpkgs) lib;
