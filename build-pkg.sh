@@ -13,7 +13,7 @@ cd "$(dirname "$0")" || exit
 # flakeref=( github:bryango/nixpkgs/dev#rust-cbindgen )
 # flakeref=( 'github:NixOS/nixpkgs?ref=pull/384706/merge#'{tectonic,texpresso} )
 flakeref=(
-    github:bryango/nixpkgs/tectonic#{tectonic,texpresso}
+    github:bryango/nixpkgs/tectonic#{tectonic-unwrapped,tectonic,texpresso}
     github:bryango/nixpkgs/tectonic#tectonic.passthru.tests.{biber-compatibility,workspace,nextonic}
 )
 # flakeref=(
