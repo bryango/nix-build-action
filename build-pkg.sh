@@ -19,8 +19,11 @@ cd "$(dirname "$0")" || exit
 # flakeref=(
 #     'github:NixOS/nixpkgs?ref=pull/422680/merge#zed-editor'
 # )
+# flakeref=(
+#     'github:bryango/nixpkgs?ref=pull/10/merge#grpc'
+# )
 flakeref=(
-    'github:bryango/nixpkgs?ref=pull/10/merge#grpc'
+    'github:NixOS/nixpkgs/83e12d408046828916796f9a16c852f41e3bcb7f#qpdf'
 )
 
 # nix build --print-build-logs --impure --expr 'with import (builtins.getFlake "'"$flakeref"'") {}; mkShell { inputsFrom = [ watchman ]; }' "$@"
