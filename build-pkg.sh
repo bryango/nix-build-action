@@ -17,7 +17,7 @@ cd "$(dirname "$0")" || exit
 #     github:bryango/nixpkgs/tectonic#tectonic.passthru.tests.{biber-compatibility,workspace,nextonic}
 # )
 flakeref=(
-    'github:NixOS/nixpkgs?ref=pull/437213/merge#'{tectonic,texpresso}
+    'github:NixOS/nixpkgs?ref=pull/439891/merge#'home-manager
 )
 # flakeref=(
 #     'github:bryango/nixpkgs?ref=pull/11/merge#hydra-check'
