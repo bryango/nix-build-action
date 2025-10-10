@@ -10,15 +10,15 @@ cd "$(dirname "$0")" || exit
 
 # flakeref=( .#pulsar )
 # flakeref=github:NixOS/nixpkgs#pkgsCross.raspberryPi.git-branchless
-# flakeref=( github:bryango/nixpkgs/dev#rust-cbindgen )
+flakeref=( github:bryango/nixpkgs/stdoutisatty#stdoutisatty )
 # flakeref=( 'github:NixOS/nixpkgs?ref=pull/384706/merge#'{tectonic,texpresso} )
 # flakeref=(
 #     github:bryango/nixpkgs/tectonic#{tectonic-unwrapped,tectonic,texpresso}
 #     github:bryango/nixpkgs/tectonic#tectonic.passthru.tests.{biber-compatibility,workspace,nextonic}
 # )
-flakeref=(
-    'github:NixOS/nixpkgs?ref=pull/439891/merge#'home-manager
-)
+# flakeref=(
+#     'github:NixOS/nixpkgs?ref=pull/439891/merge#'home-manager
+# )
 # flakeref=(
 #     'github:bryango/nixpkgs?ref=pull/11/merge#hydra-check'
 # )
